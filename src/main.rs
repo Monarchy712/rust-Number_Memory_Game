@@ -1,5 +1,7 @@
 use rand::Rng;
 use std::io;
+use std::time::Duration;
+use std::thread;
 
 
 fn main() {
@@ -19,12 +21,18 @@ fn main() {
         }
         println!();
 
-        thread::sleep(time::Duration::from_secs(2));
-        println!("\n\n\n\n\n\n\n\n");
+        thread::sleep(Duration::from_secs(2));
+        println!("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
         println!("Enter the sequence (space seperated): ");
         let mut input = String::new();
         io::stdin().read_line(&mut input).unwrap();
+
+        let user_sequence: Vec<u32> = input
+            .trim()
+            .split_whitespace()
+            .filter_map(|x| x.parse().ok())
+            .collect();
 
         if user_sequence != sequence {
             println!("Wrong Sequence!");
@@ -34,6 +42,6 @@ fn main() {
         }
         
         println!("Correct !\n");
-        round++;
+        round+=1;
     }
 }
