@@ -20,6 +20,20 @@ fn main() {
         println!();
 
         thread::sleep(time::Duration::from_secs(2));
+        println!("\n\n\n\n\n\n\n\n");
 
+        println!("Enter the sequence (space seperated): ");
+        let mut input = String::new();
+        io::stdin().read_line(&mut input).unwrap();
+
+        if user_sequence != sequence {
+            println!("Wrong Sequence!");
+            println!("Correct was {:?}", sequence);
+            println!("Game Over, you reached round {}", round);
+            break
+        }
+        
+        println!("Correct !\n");
+        round++;
     }
 }
